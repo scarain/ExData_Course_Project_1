@@ -13,7 +13,7 @@ txtfile <- "./data/household_power_consumption.txt"
 Feb <- grep("^[1,2]/2/2007", readLines(txtfile))
 skip <- Feb[1]-1
 nrows <- length(Feb)
-data <- fread(txtfile, skip = skip, nrows = nrows, header = FALSE, col.names = c("Date", "Time", "Global_active_power", "Global_reactive_power", "Voltage", "Global_intensity", "Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+data <- fread(txtfile, skip = skip, nrows = nrows, header = FALSE, col.names = c("Date", "Time", "Global_active_power", "Global_reactive_power", "Voltage", "Global_intensity", "Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), na.string = "?")
 
 # Plot 3
 data$Date <- as.Date(data$Date, "%d/%m/%Y")
